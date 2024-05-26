@@ -2,7 +2,7 @@ import 'package:connect_to_sql_server_directly/connect_to_sql_server_directly.da
 // import 'package:flutter/material.dart';
 
 class SQL {
-  static var database = "foodapp";
+  static var database = "coursetracker";
   // static var ip = "192.168.117.235";
   static var ip = "192.168.100.7";
   // static var ip = "127.0.0.1";

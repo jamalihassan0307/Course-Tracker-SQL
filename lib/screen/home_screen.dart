@@ -2,7 +2,7 @@
 
 import 'package:button_navigation_bar/button_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:course_tracker/controller/recipe_repository.dart';
+import 'package:course_tracker/controller/courseController.dart';
 import 'package:course_tracker/sql/sql.dart';
 // import 'package:course_tracker/sql/sqllite.dart';
 import 'package:course_tracker/model.dart/RecppeModel.dart';

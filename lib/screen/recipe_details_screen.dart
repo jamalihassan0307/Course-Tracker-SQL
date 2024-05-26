@@ -2,7 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:course_tracker/controller/recipe_repository.dart';
+import 'package:course_tracker/controller/courseController.dart';
 
 import 'package:course_tracker/model.dart/RecppeModel.dart';
 
@@ -96,10 +96,10 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    InfoViewer(name: 'Kcal', amount: widget.recipe.calories),
-                    InfoViewer(name: 'Protein', amount: widget.recipe.protein),
+                    InfoViewer(name: 'Kcal', amount: widget.recipe.paid_fee),
+                    InfoViewer(name: 'Protein', amount: widget.recipe.startDate),
                     InfoViewer(
-                        name: 'Prep Time', amount: widget.recipe.prepTime),
+                        name: 'Prep Time', amount: widget.recipe.endDate),
                   ]),
             ),
             SizedBox(height: height * 0.05),

@@ -15,7 +15,7 @@ Future<void> main() async {
 // var list= await loadRecipes();
 //   for (var e in list) {
     
-//     SQL.get("INSERT INTO dbo.Brecipes VALUES (${e.toMap()})");}
+//     SQL.get("INSERT INTO dbo.bcourse VALUES (${e.toMap()})");}
 }
 
 class MyApp extends StatelessWidget {

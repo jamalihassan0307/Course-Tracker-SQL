@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:course_tracker/controller/recipe_repository.dart';
+import 'package:course_tracker/controller/courseController.dart';
 import 'package:get/get.dart';
 
 class AddData extends StatefulWidget {

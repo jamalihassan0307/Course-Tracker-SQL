@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:course_tracker/controller/loginController.dart';
-import 'package:course_tracker/controller/recipe_repository.dart';
+import 'package:course_tracker/controller/courseController.dart';
 import 'package:course_tracker/model.dart/RecppeModel.dart';
 import 'package:course_tracker/screen/SignupScreen.dart';
 import 'package:course_tracker/screen/home_screen.dart';

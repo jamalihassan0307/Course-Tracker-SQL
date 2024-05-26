@@ -59,10 +59,10 @@ class RecipeRepository extends GetxController {
           name: name.text,
           description: des.text,
           imageUrl: image!.path,
-          calories: cal.text,
-          protein: protein.text,
-          prepTime: pre.text);
-          await SQL.post("INSERT INTO dbo.recipes VALUES  (${model.toMap()})").then((value) {
+          paid_fee: cal.text,
+          startDate: protein.text,
+          endDate: pre.text);
+          await SQL.post("INSERT INTO dbo.course VALUES  (${model.toMap()})").then((value) {
  Fluttertoast.showToast(
           msg: "Add Successfully !",
           backgroundColor: Colors.red,
