@@ -29,7 +29,11 @@ class _SignUpState extends State<SignUp> {
         return Container(
             height: height,
             width: width,
-            color: Colors.black,
+            decoration: BoxDecoration(
+          // color: Colors.black,
+          image: DecorationImage(image: AssetImage("assets/images/programming.jpg"),fit: BoxFit.fill)
+        ),
+            // color: Colors.black,
             child: Center(
               child: SizedBox(
                 height: height,
@@ -67,7 +71,7 @@ class _SignUpState extends State<SignUp> {
                       height: height * 0.07,
                       child: TextFormField(
                         controller: obj.username,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorRadius: const Radius.circular(10),
                         cursorHeight: 30,
                         style: const TextStyle(fontSize: 20),
@@ -92,7 +96,7 @@ class _SignUpState extends State<SignUp> {
                       height: height * 0.07,
                       child: TextFormField(
                         controller: obj.password,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorRadius: const Radius.circular(10),
                         cursorHeight: 30,
                         style: const TextStyle(fontSize: 20),
@@ -117,7 +121,7 @@ class _SignUpState extends State<SignUp> {
                       height: height * 0.07,
                       child: TextFormField(
                         controller: obj.phone,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorRadius: const Radius.circular(10),
                         cursorHeight: 30,
                         style: const TextStyle(fontSize: 20),
@@ -142,7 +146,7 @@ class _SignUpState extends State<SignUp> {
                       height: height * 0.07,
                       child: TextFormField(
                         controller: obj.dob,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorRadius: const Radius.circular(10),
                         cursorHeight: 30,
                         style: const TextStyle(fontSize: 20),
@@ -167,7 +171,7 @@ class _SignUpState extends State<SignUp> {
                       height: height * 0.07,
                       child: TextFormField(
                         controller: obj.email,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorRadius: const Radius.circular(10),
                         cursorHeight: 30,
                         style: const TextStyle(fontSize: 20),
@@ -238,7 +242,7 @@ class _SignUpState extends State<SignUp> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 18,
-                                color: Color.fromARGB(255, 241, 21, 5)),
+                                color: Colors.blue),
                           ),
                         ],
                       ),

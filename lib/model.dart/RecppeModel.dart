@@ -46,101 +46,103 @@ class Course {
 }
 
 Future<List<Course>> loadRecipes() async {
-  String spaghettiImagePath =
-      (await StaticData.assetToFile("assets/images/spaghetti.png")).path;
 
-  List<Course> makeRecipes = [
+
+
+  String flutter = (await StaticData.assetToFile("assets/images/flutter.png")).path;
+  String java = (await StaticData.assetToFile("assets/images/java.png")).path;
+  String cplusplus = (await StaticData.assetToFile("assets/images/cplus.png")).path;
+  String python = (await StaticData.assetToFile("assets/images/pythen.png")).path;
+  String webdeveiopment = (await StaticData.assetToFile("assets/images/webdeveiopment.jfif")).path;
+  String andriod_development_with_kotline = (await StaticData.assetToFile("assets/images/andriod_development_with_kotline.jfif")).path;
+  String machine_Learning_with_Python = (await StaticData.assetToFile("assets/images/machine_Learning_with_Python.jfif")).path;
+  String html_CSS_JavaScript = (await StaticData.assetToFile("assets/images/html_CSS_JavaScript.jfif")).path;
+  String sql_for_Data_Analysis = (await StaticData.assetToFile("assets/images/sql_for_Data_Analysis.png")).path;
+
+  List<Course> makeCourses = [
     Course(
       id: "1",
-      name: "Spaghetti Bolognese",
-      description: "A classic Italian meat sauce served over pasta",
-      imageUrl: spaghettiImagePath,
+      name: "Flutter Development",
+      description: "Learn to build beautiful native apps with Flutter.",
+      imageUrl: flutter,
       paid_fee: "650",
       startDate: "35",
       endDate: "60",
     ),
     Course(
       id: "2",
-      name: "Chicken Parmesan",
-      description:
-          "Breaded chicken breast topped with tomato sauce and mozzarella",
-      imageUrl:
-          (await StaticData.assetToFile("assets/images/chicken.png")).path,
+      name: "Java Programming",
+      description: "Master Java programming from basics to advanced.",
+      imageUrl: java,
       paid_fee: "550",
       startDate: "45",
       endDate: "30",
     ),
     Course(
       id: "3",
-      name: "Caesar Salad",
-      description:
-          "Romaine lettuce with creamy Caesar dressing, croutons and parmesan",
-      imageUrl: (await StaticData.assetToFile("assets/images/salad.png")).path,
+      name: "C++ for Beginners",
+      description: "An introductory course to C++ programming.",
+      imageUrl: cplusplus,
       paid_fee: "250",
       startDate: "10",
       endDate: "10",
     ),
     Course(
       id: "4",
-      name: "Tacos",
-      description:
-          "Soft tortilla shells filled with seasoned ground beef, lettuce, cheese and salsa",
-      imageUrl: (await StaticData.assetToFile("assets/images/tacos.png")).path,
+      name: "Python for Data Science",
+      description: "Learn Python and its applications in Data Science.",
+      imageUrl: python,
       paid_fee: "500",
       startDate: "20",
       endDate: "20",
     ),
     Course(
       id: "5",
-      name: "Pasta Alfredo",
-      description:
-          "Fettuccine pasta tossed in a rich, creamy parmesan cheese sauce",
-      imageUrl:
-          (await StaticData.assetToFile("assets/images/alfredo.png")).path,
+      name: "Web Development with React",
+      description: "Build modern web applications using React.",
+      imageUrl: webdeveiopment,
       paid_fee: "800",
       startDate: "15",
       endDate: "15",
     ),
     Course(
       id: "6",
-      name: "Cheese Pizza",
-      description: "Crispy crust with tomato sauce and mozzarella cheese",
-      imageUrl: (await StaticData.assetToFile("assets/images/pizza.png")).path,
+      name: "Android Development with Kotlin",
+      description: "Create Android apps using Kotlin.",
+      imageUrl: andriod_development_with_kotline,
       paid_fee: "700",
       startDate: "20",
       endDate: "40",
     ),
     Course(
       id: "7",
-      name: "Hamburger",
-      description:
-          "Juicy beef patty with lettuce, tomato, onion and cheese on a bun",
-      imageUrl: (await StaticData.assetToFile("assets/images/burger.png")).path,
+      name: "Machine Learning with Python",
+      description: "Introduction to machine learning using Python.",
+      imageUrl: machine_Learning_with_Python,
       paid_fee: "650",
       startDate: "25",
       endDate: "15",
     ),
     Course(
       id: "8",
-      name: "Chocolate Chip Cookies",
-      description: "Chewy cookies filled with chocolate chips",
-      imageUrl:
-          (await StaticData.assetToFile("assets/images/cookies.png")).path,
+      name: "HTML, CSS, and JavaScript",
+      description: "Learn to build websites using HTML, CSS, and JavaScript.",
+      imageUrl: html_CSS_JavaScript,
       paid_fee: "200",
       startDate: "3",
       endDate: "30",
     ),
     Course(
       id: "9",
-      name: "Chicken Fried Rice",
-      description: "Rice stir-fried with chicken, vegetables and egg",
-      imageUrl: (await StaticData.assetToFile("assets/images/rice.png")).path,
+      name: "SQL for Data Analysis",
+      description: "Master SQL and its applications in data analysis.",
+      imageUrl: sql_for_Data_Analysis,
       paid_fee: "450",
       startDate: "25",
       endDate: "30",
     ),
   ];
  
-  return makeRecipes;
+  return makeCourses;
 }
 

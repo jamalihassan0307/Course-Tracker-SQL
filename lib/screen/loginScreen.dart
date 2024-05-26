@@ -42,31 +42,36 @@ class _LoginScreenState extends State<LoginScreen> {
         return Container(
           height: height,
           width: width,
-          color: Colors.black,
+          
+        decoration: BoxDecoration(
+          // color: Colors.black,
+          image: DecorationImage(image: AssetImage("assets/images/programming.jpg"),fit: BoxFit.fill)
+        ),
           child: Center(
             child: SizedBox(
               height: height,
               width: width * 0.9,
-              child: ListView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: height * 0.5,
-                    width: width,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/dish.png"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: const Align(
-                      alignment: Alignment.topLeft,
-                      child: Icon(
-                        Icons.west,
-                        color: Colors.white,
-                        size: 35,
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   height: height * 0.5,
+                  //   width: width,
+                  //   decoration: const BoxDecoration(
+                  //     image: DecorationImage(
+                  //       image: AssetImage("assets/images/dish.png"),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  //   child: const Align(
+                  //     alignment: Alignment.topLeft,
+                  //     child: Icon(
+                  //       Icons.west,
+                  //       color: Colors.white,
+                  //       size: 35,
+                  //     ),
+                  //   ),
+                  // ),
                   // Column(
                   //     mainAxisAlignment: MainAxisAlignment.start,
                   //     crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,12 +97,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: SizedBox(
                       height: height * 0.07,
                       child: TextFormField(
+                        
                         controller: obj.email,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorRadius: const Radius.circular(10),
                         cursorHeight: 30,
+
                         style: const TextStyle(fontSize: 20),
                         decoration: const InputDecoration(
+                          fillColor: Colors.black,
                           contentPadding: EdgeInsets.only(left: 10),
                           border: InputBorder.none,
                           filled: false,
@@ -120,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: height * 0.07,
                       child: TextFormField(
                         controller: obj.password,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorRadius: const Radius.circular(10),
                         cursorHeight: 30,
                         style: const TextStyle(fontSize: 20),
@@ -221,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 22,
-                              color: Colors.red),
+                              color: Colors.blue),
                         ),
                       ),
                     ],

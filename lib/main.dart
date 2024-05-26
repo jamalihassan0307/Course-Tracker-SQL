@@ -1,3 +1,4 @@
+import 'package:course_tracker/model.dart/RecppeModel.dart';
 import 'package:flutter/services.dart';
 // import 'package:course_tracker/model.dart/RecppeModel.dart';
 import 'package:course_tracker/sql/sql.dart';
@@ -12,10 +13,10 @@ Future<void> main() async {
       statusBarBrightness: Brightness.light));
   runApp(const MyApp());
   await SQL.connection();
-// var list= await loadRecipes();
-//   for (var e in list) {
+var list= await loadRecipes();
+  for (var e in list) {
     
-//     SQL.get("INSERT INTO dbo.bcourse VALUES (${e.toMap()})");}
+    SQL.get("INSERT INTO dbo.bcourse VALUES (${e.toMap()})");}
 }
 
 class MyApp extends StatelessWidget {
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       home: const LoginScreen(),
       // HomeScreen(),
       darkTheme: mainTheme,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
     );
   }
