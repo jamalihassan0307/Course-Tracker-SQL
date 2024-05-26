@@ -39,7 +39,7 @@ class _Page2State extends State<Page2> {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Expanded(
-                      child: obj.yourrecipe == null || obj.yourrecipe!.isEmpty
+                      child: obj.yourcourse == null || obj.yourcourse!.isEmpty
                           ? SizedBox(
                               height: height * 0.6,
                               width: width,
@@ -66,7 +66,7 @@ class _Page2State extends State<Page2> {
                             )
                           : LoadedRecipesWidget(
                               delete: true,
-                              recipes: obj.yourrecipe!,
+                              recipes: obj.yourcourse!,
                             ),
                     )
                   ],

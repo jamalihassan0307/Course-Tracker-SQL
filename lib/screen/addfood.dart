@@ -160,7 +160,7 @@ class _AddDataState extends State<AddData> {
                 child: SizedBox(
                   height: height * 0.07,
                   child: TextFormField(
-                    controller: obj.cal,
+                    controller: obj.paidfee,
                     cursorColor: Colors.white,
                     cursorRadius: const Radius.circular(10),
                     cursorHeight: 30,
@@ -187,7 +187,7 @@ class _AddDataState extends State<AddData> {
                 child: SizedBox(
                   height: height * 0.07,
                   child: TextFormField(
-                    controller: obj.protein,
+                    controller: obj.startDate,
                     cursorColor: Colors.white,
                     cursorRadius: const Radius.circular(10),
                     cursorHeight: 30,
@@ -214,7 +214,7 @@ class _AddDataState extends State<AddData> {
                 child: SizedBox(
                   height: height * 0.07,
                   child: TextFormField(
-                    controller: obj.pre,
+                    controller: obj.endData,
                     cursorColor: Colors.white,
                     cursorRadius: const Radius.circular(10),
                     cursorHeight: 30,

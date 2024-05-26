@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
        SQL
         .get(
-            "select * from dbo.recipes ")
+            "select * from dbo.course")
         .then((value) {
           print("valueeeeeeeeeeeeeeee${value}");  List<Map<String, dynamic>> tempResult =
           value.cast<Map<String, dynamic>>();

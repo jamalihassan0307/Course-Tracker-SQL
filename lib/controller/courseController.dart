@@ -12,27 +12,27 @@ import 'package:image_picker/image_picker.dart';
 
 class RecipeRepository extends GetxController {
   static RecipeRepository get to => Get.find();
-  List<Course>? yourrecipe;
-  List<Course>? bestrecipe;
+  List<Course>? yourcourse;
+  List<Course>? bestcourse;
   TextEditingController name = TextEditingController();
   TextEditingController des = TextEditingController();
-  TextEditingController cal = TextEditingController();
-  TextEditingController protein = TextEditingController();
-  TextEditingController pre = TextEditingController();
+  TextEditingController paidfee = TextEditingController();
+  TextEditingController startDate = TextEditingController();
+  TextEditingController endData = TextEditingController();
   int index = 0;
   File? image;
   void delete(Course recipe) {
-    yourrecipe!.removeWhere((item) => item.id == recipe.id);
+    yourcourse!.removeWhere((item) => item.id == recipe.id);
     update();
   }
 
-  updatebestrecipe(List<Course> recipe) {
-    bestrecipe = recipe;
+  updatebestrecipe(List<Course> course) {
+    bestcourse = course;
     update();
   }
 
-  updateyourrecipe(List<Course> recipe) {
-    yourrecipe = recipe;
+  updateyourrecipe(List<Course> course) {
+    yourcourse = course;
     update();
   }
 
@@ -50,18 +50,18 @@ class RecipeRepository extends GetxController {
     if (name.text.isNotEmpty &&
         des.text.isNotEmpty &&
         image != null &&
-        cal.text.isNotEmpty &&
-        protein.text.isNotEmpty &&
-        pre.text.isNotEmpty) {
+        paidfee.text.isNotEmpty &&
+        startDate.text.isNotEmpty &&
+        endData.text.isNotEmpty) {
       String id = DateTime.now().microsecond.toString();
       Course model = Course(
           id: id,
           name: name.text,
           description: des.text,
           imageUrl: image!.path,
-          paid_fee: cal.text,
-          startDate: protein.text,
-          endDate: pre.text);
+          paid_fee: paidfee.text,
+          startDate: startDate.text,
+          endDate: endData.text);
           await SQL.post("INSERT INTO dbo.course VALUES  (${model.toMap()})").then((value) {
  Fluttertoast.showToast(
           msg: "Add Successfully !",
@@ -75,7 +75,7 @@ class RecipeRepository extends GetxController {
           });
       
        
-       yourrecipe!.add(model);
+       yourcourse!.add(model);
     
       cleardata();
     } else {
@@ -96,37 +96,10 @@ class RecipeRepository extends GetxController {
     des.clear();
     des.clear();
     image = null;
-    cal.clear();
-    pre.clear();
-    protein.clear();
+    paidfee.clear();
+    endData.clear();
+    startDate.clear();
     update();
   }
 }
 
-
-
-
-
-// import 'dart:convert';
-
-// import 'package:dribbble_challenge/src/recipes/domain/recipe.dart';
-// import 'package:flutter/services.dart';
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-// class RecipeRepository {
-//   Future<List<Recipe>> loadRecipes(
-//       {String filePath = "assets/recipes.json"}) async {
-//     final response = await rootBundle.loadString(filePath);
-//     final recipes =
-//         (jsonDecode(response) as List).map((e) => Recipe.fromJson(e)).toList();
-//     return recipes;
-//   }
-// }
-
-// final repositoryProvider = Provider<RecipeRepository>((ref) {
-//   return RecipeRepository();
-// });
-
-// final recipesProvider = FutureProvider<List<Recipe>>((ref) async {
-//   return ref.watch(repositoryProvider).loadRecipes();
-// });

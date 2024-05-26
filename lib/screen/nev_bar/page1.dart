@@ -55,14 +55,14 @@ class _Page1State extends State<Page1> {
                 ),
                 SizedBox(height: height * 0.02),
                 Text(
-                  "${obj.bestrecipe == null ? 0 : obj.bestrecipe!.length} Best Food",
+                  "${obj.bestcourse == null ? 0 : obj.bestcourse!.length} Best Course",
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Expanded(
-                  child: obj.bestrecipe == null
+                  child: obj.bestcourse == null
                       ? const SizedBox()
                       : LoadedRecipesWidget(
-                          recipes: obj.bestrecipe!,
+                          recipes: obj.bestcourse!,
                         ),
                 )
               ],

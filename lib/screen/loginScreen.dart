@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   getdata() async {
-    RecipeRepository.to.bestrecipe = await loadRecipes();
+    RecipeRepository.to.bestcourse = await loadRecipes();
   }
 
   @override
