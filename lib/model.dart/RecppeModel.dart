@@ -5,7 +5,7 @@
 import 'package:course_tracker/widget/constants/staticdata.dart';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-class Recipe {
+class Course {
   final String id;
   final String name;
   final String description;
@@ -13,7 +13,7 @@ class Recipe {
   final String calories;
   final String protein;
   final String prepTime;
-  Recipe({
+  Course({
     required this.id,
     required this.name,
     required this.description,
@@ -30,8 +30,8 @@ class Recipe {
 
   }
 
-  factory Recipe.fromMap( map) {
-    return Recipe(
+  factory Course.fromMap( map) {
+    return Course(
       id: map['id'] ,
       name: map['name'] ,
       description: map['description'] ,
@@ -45,12 +45,12 @@ class Recipe {
  
 }
 
-Future<List<Recipe>> loadRecipes() async {
+Future<List<Course>> loadRecipes() async {
   String spaghettiImagePath =
       (await StaticData.assetToFile("assets/images/spaghetti.png")).path;
 
-  List<Recipe> makeRecipes = [
-    Recipe(
+  List<Course> makeRecipes = [
+    Course(
       id: "1",
       name: "Spaghetti Bolognese",
       description: "A classic Italian meat sauce served over pasta",
@@ -59,7 +59,7 @@ Future<List<Recipe>> loadRecipes() async {
       protein: "35",
       prepTime: "60",
     ),
-    Recipe(
+    Course(
       id: "2",
       name: "Chicken Parmesan",
       description:
@@ -70,7 +70,7 @@ Future<List<Recipe>> loadRecipes() async {
       protein: "45",
       prepTime: "30",
     ),
-    Recipe(
+    Course(
       id: "3",
       name: "Caesar Salad",
       description:
@@ -80,7 +80,7 @@ Future<List<Recipe>> loadRecipes() async {
       protein: "10",
       prepTime: "10",
     ),
-    Recipe(
+    Course(
       id: "4",
       name: "Tacos",
       description:
@@ -90,7 +90,7 @@ Future<List<Recipe>> loadRecipes() async {
       protein: "20",
       prepTime: "20",
     ),
-    Recipe(
+    Course(
       id: "5",
       name: "Pasta Alfredo",
       description:
@@ -101,7 +101,7 @@ Future<List<Recipe>> loadRecipes() async {
       protein: "15",
       prepTime: "15",
     ),
-    Recipe(
+    Course(
       id: "6",
       name: "Cheese Pizza",
       description: "Crispy crust with tomato sauce and mozzarella cheese",
@@ -110,7 +110,7 @@ Future<List<Recipe>> loadRecipes() async {
       protein: "20",
       prepTime: "40",
     ),
-    Recipe(
+    Course(
       id: "7",
       name: "Hamburger",
       description:
@@ -120,7 +120,7 @@ Future<List<Recipe>> loadRecipes() async {
       protein: "25",
       prepTime: "15",
     ),
-    Recipe(
+    Course(
       id: "8",
       name: "Chocolate Chip Cookies",
       description: "Chewy cookies filled with chocolate chips",
@@ -130,7 +130,7 @@ Future<List<Recipe>> loadRecipes() async {
       protein: "3",
       prepTime: "30",
     ),
-    Recipe(
+    Course(
       id: "9",
       name: "Chicken Fried Rice",
       description: "Rice stir-fried with chicken, vegetables and egg",

@@ -9,7 +9,7 @@ import 'package:course_tracker/model.dart/RecppeModel.dart';
 import 'package:course_tracker/screen/recipe_details_screen.dart';
 
 class LoadedRecipesWidget extends StatefulWidget {
-  final List<Recipe> recipes;
+  final List<Course> recipes;
   final bool? delete;
   const LoadedRecipesWidget({
     super.key,
@@ -49,7 +49,7 @@ class _LoadedRecipesWidgetState extends State<LoadedRecipesWidget> {
 }
 
 class RecipeCardWidget extends StatelessWidget {
-  final Recipe recipe;
+  final Course recipe;
   RecipeCardWidget({
     super.key,
     required this.recipe,

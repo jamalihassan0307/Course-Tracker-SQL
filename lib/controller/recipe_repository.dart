@@ -12,8 +12,8 @@ import 'package:image_picker/image_picker.dart';
 
 class RecipeRepository extends GetxController {
   static RecipeRepository get to => Get.find();
-  List<Recipe>? yourrecipe;
-  List<Recipe>? bestrecipe;
+  List<Course>? yourrecipe;
+  List<Course>? bestrecipe;
   TextEditingController name = TextEditingController();
   TextEditingController des = TextEditingController();
   TextEditingController cal = TextEditingController();
@@ -21,17 +21,17 @@ class RecipeRepository extends GetxController {
   TextEditingController pre = TextEditingController();
   int index = 0;
   File? image;
-  void delete(Recipe recipe) {
+  void delete(Course recipe) {
     yourrecipe!.removeWhere((item) => item.id == recipe.id);
     update();
   }
 
-  updatebestrecipe(List<Recipe> recipe) {
+  updatebestrecipe(List<Course> recipe) {
     bestrecipe = recipe;
     update();
   }
 
-  updateyourrecipe(List<Recipe> recipe) {
+  updateyourrecipe(List<Course> recipe) {
     yourrecipe = recipe;
     update();
   }
@@ -54,7 +54,7 @@ class RecipeRepository extends GetxController {
         protein.text.isNotEmpty &&
         pre.text.isNotEmpty) {
       String id = DateTime.now().microsecond.toString();
-      Recipe model = Recipe(
+      Course model = Course(
           id: id,
           name: name.text,
           description: des.text,

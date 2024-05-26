@@ -36,9 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
         .then((value) {
           print("valueeeeeeeeeeeeeeee${value}");  List<Map<String, dynamic>> tempResult =
           value.cast<Map<String, dynamic>>();
-            List<Recipe> recipe = List.generate(tempResult.length, (i) {      
+            List<Course> recipe = List.generate(tempResult.length, (i) {      
 
-            return Recipe.fromMap(tempResult[i]);
+            return Course.fromMap(tempResult[i]);
             });
     RecipeRepository.to.updateyourrecipe(recipe);
    

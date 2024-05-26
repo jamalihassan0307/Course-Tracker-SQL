@@ -7,7 +7,7 @@ import 'package:course_tracker/controller/recipe_repository.dart';
 import 'package:course_tracker/model.dart/RecppeModel.dart';
 
 class RecipeDetailsScreen extends StatefulWidget {
-  final Recipe recipe;
+  final Course recipe;
   bool? delete;
   RecipeDetailsScreen({
     super.key,
