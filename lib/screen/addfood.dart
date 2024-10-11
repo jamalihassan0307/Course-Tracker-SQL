@@ -41,16 +41,16 @@ class _AddDataState extends State<AddData> {
                     SizedBox(width: width * 0.02),
                     const Icon(
                       Icons.west,
-                      color: Colors.white,
+                      color: Colors.black,
                       size: 35,
                     ),
                     SizedBox(width: width * 0.25),
                     const Text(
-                      "Add Food ",
+                      "Add Course ",
                       style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w800,
-                          color: Colors.white),
+                          color: Colors.black),
                     ),
                   ],
                 ),
@@ -85,6 +85,7 @@ class _AddDataState extends State<AddData> {
                         ),
                       )
                     : CircleAvatar(
+                      backgroundColor:  Colors.amber,
                         radius: 80,
                         child: InkWell(
                           onTap: () {
@@ -100,6 +101,7 @@ class _AddDataState extends State<AddData> {
                       ),
               ),
               Card(
+                color: Colors.amber,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40)),
                 child: Container(
@@ -109,7 +111,7 @@ class _AddDataState extends State<AddData> {
                   child: TextField(
                     enableInteractiveSelection: false,
                     controller: obj.name,
-                    cursorColor: Colors.white,
+                    cursorColor: Colors.black,
                     cursorRadius: const Radius.circular(10),
                     cursorHeight: 30,
                     style: const TextStyle(fontSize: 20),
@@ -127,6 +129,7 @@ class _AddDataState extends State<AddData> {
                 height: height * 0.01,
               ),
               Card(
+                color: Colors.amber,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40)),
                 shadowColor: Colors.black,
@@ -135,7 +138,7 @@ class _AddDataState extends State<AddData> {
                   height: height * 0.07,
                   child: TextFormField(
                     controller: obj.des,
-                    cursorColor: Colors.white,
+                    cursorColor: Colors.black,
                     cursorRadius: const Radius.circular(10),
                     cursorHeight: 30,
                     style: const TextStyle(fontSize: 20),
@@ -153,6 +156,7 @@ class _AddDataState extends State<AddData> {
                 height: height * 0.01,
               ),
               Card(
+                color: Colors.amber,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40)),
                 shadowColor: Colors.black,
@@ -161,13 +165,13 @@ class _AddDataState extends State<AddData> {
                   height: height * 0.07,
                   child: TextFormField(
                     controller: obj.paidfee,
-                    cursorColor: Colors.white,
+                    cursorColor: Colors.black,
                     cursorRadius: const Radius.circular(10),
                     cursorHeight: 30,
                     style: const TextStyle(fontSize: 20),
                     decoration: const InputDecoration(
                       border: InputBorder.none,
-                      hintText: "  Calories",
+                      hintText: "  Fee",
                       filled: false,
                       contentPadding: EdgeInsets.only(left: 10),
                       hintStyle: TextStyle(fontSize: 20),
@@ -179,6 +183,7 @@ class _AddDataState extends State<AddData> {
                 height: height * 0.01,
               ),
               Card(
+                color: Colors.amber,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40)),
                 shadowColor: Colors.black,
@@ -188,7 +193,7 @@ class _AddDataState extends State<AddData> {
                   height: height * 0.07,
                   child: TextFormField(
                     controller: obj.startDate,
-                    cursorColor: Colors.white,
+                    cursorColor: Colors.black,
                     cursorRadius: const Radius.circular(10),
                     cursorHeight: 30,
                     style: const TextStyle(fontSize: 20),
@@ -196,7 +201,7 @@ class _AddDataState extends State<AddData> {
                       border: InputBorder.none,
                       filled: false,
                       contentPadding: EdgeInsets.only(left: 10),
-                      hintText: "  Protein",
+                      hintText: "  Start Date",
                       hintStyle: TextStyle(fontSize: 20),
                     ),
                   ),
@@ -206,6 +211,7 @@ class _AddDataState extends State<AddData> {
                 height: height * 0.01,
               ),
               Card(
+                color: Colors.amber,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40)),
                 shadowColor: Colors.black,
@@ -215,13 +221,13 @@ class _AddDataState extends State<AddData> {
                   height: height * 0.07,
                   child: TextFormField(
                     controller: obj.endData,
-                    cursorColor: Colors.white,
+                    cursorColor: Colors.black,
                     cursorRadius: const Radius.circular(10),
                     cursorHeight: 30,
                     style: const TextStyle(fontSize: 20),
                     decoration: const InputDecoration(
                       border: InputBorder.none,
-                      hintText: "  PrepTime",
+                      hintText: "  End Date",
                       filled: false,
                       contentPadding: EdgeInsets.only(left: 10),
                       hintStyle: TextStyle(fontSize: 20),
@@ -247,7 +253,7 @@ class _AddDataState extends State<AddData> {
                       width: width * 0.5,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(40),
-                        color: const Color.fromARGB(255, 138, 11, 160),
+                        color:  Colors.blue,
                       ),
                       child: const Center(
                         child: Text(

@@ -35,7 +35,7 @@ class _Page2State extends State<Page2> {
                   children: [
                     SizedBox(height: height * 0.05),
                     Text(
-                      "Eaten Food ",
+                      "Course done",
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Expanded(
@@ -47,13 +47,13 @@ class _Page2State extends State<Page2> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Center(
-                                    child: Image(
-                                        height: height * 0.3,
-                                        width: width * 0.5,
-                                        image: const AssetImage(
-                                            "assets/images/spaghetti.png")),
-                                  ),
+                                  // Center(
+                                  //   child: Image(
+                                  //       height: height * 0.3,
+                                  //       width: width * 0.5,
+                                  //       image: const AssetImage(
+                                  //           "assets/images/spaghetti.png")),
+                                  // ),
                                   Text(
                                     "No Data",
                                     style: Theme.of(context)

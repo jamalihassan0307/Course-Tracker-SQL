@@ -25,13 +25,14 @@ class SettingsScreen extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 30,
-                color: Colors.blueAccent,
+                color: Colors.blue,
               ),
             ),
             const SizedBox(
               height: 20,
             ),
             ListTile(
+              // focusColor: Colors.amber,
               leading: CircleAvatar(
                 radius: 30,
                 backgroundImage: FileImage(File(StaticData.model!.image)),
@@ -113,7 +114,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ),
               title: const Text(
-                "Add Food",
+                "Add Course",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 15,

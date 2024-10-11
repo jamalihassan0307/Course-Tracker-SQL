@@ -28,9 +28,14 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen> {
     width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: SizedBox(
+      body: Container(
+
         height: height,
         width: width,
+          decoration: BoxDecoration(
+          // color: Colors.black,
+          image: DecorationImage(image: AssetImage("assets/images/aaa.jfif"),fit: BoxFit.fill)
+        ),
         child: Column(
           children: [
             SizedBox(height: height * 0.02),
@@ -64,9 +69,10 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen> {
             Center(
               child: Container(
                 height: height * 0.25,
-                width: width * 0.6,
+                width: width * 0.5,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(200),
+                    border: Border.all(color: Colors.black),
                     image: DecorationImage(
                       image: FileImage(
                         File(
@@ -91,15 +97,15 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen> {
               height: height * 0.1,
               margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white30, width: 1.3),
+                  border: Border.all(color: Colors.black, width: 1.3),
                   borderRadius: BorderRadius.circular(20)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    InfoViewer(name: 'Kcal', amount: widget.recipe.paid_fee),
-                    InfoViewer(name: 'Protein', amount: widget.recipe.startDate),
+                    InfoViewer(name: 'Fee', amount: widget.recipe.paid_fee),
+                    InfoViewer(name: 'Start data', amount: widget.recipe.startDate),
                     InfoViewer(
-                        name: 'Prep Time', amount: widget.recipe.endDate),
+                        name: 'End date', amount: widget.recipe.endDate),
                   ]),
             ),
             SizedBox(height: height * 0.05),
@@ -108,7 +114,7 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen> {
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(color: Colors.white),
+                  .copyWith(color: Colors.black),
             ),
             SizedBox(height: height * 0.02),
             Center(
@@ -120,7 +126,7 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen> {
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
-                      .copyWith(color: Colors.white),
+                      .copyWith(color: Colors.black),
                 ),
               ),
             ),
@@ -147,7 +153,7 @@ class _RecipeDetailsScreenState extends State<RecipeDetailsScreen> {
                   ),
                   child: Center(
                     child: Text(
-                      widget.delete == true ? "Delete" : "Update",
+                     "Delete",
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 27,

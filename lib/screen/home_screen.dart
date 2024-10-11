@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, library_private_types_in_public_api, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:button_navigation_bar/button_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:course_tracker/controller/courseController.dart';
 import 'package:course_tracker/sql/sql.dart';
@@ -18,7 +17,21 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+  var _bottomNavIndex = 0; //default index of the first screen
+
+  final list = [
+    Page1(),
+    Page2(),
+    SettingsScreen(),
+  ];
+
+  final iconList = <IconData>[
+    Icons.home,
+    Icons.brightness_6,
+    Icons.settings
+  ];
+
   @override
   void initState() {
     Get.put(RecipeRepository());
@@ -30,18 +43,15 @@ class _HomeScreenState extends State<HomeScreen> {
     RecipeRepository.to.updateyourrecipe([]);
 
     try {
-       SQL
-        .get(
-            "select * from dbo.course")
+      SQL
+        .get("select * from dbo.course")
         .then((value) {
-          print("valueeeeeeeeeeeeeeee${value}");  List<Map<String, dynamic>> tempResult =
-          value.cast<Map<String, dynamic>>();
-            List<Course> recipe = List.generate(tempResult.length, (i) {      
-
+          print("valueeeeeeeeeeeeeeee${value}");  
+          List<Map<String, dynamic>> tempResult = value.cast<Map<String, dynamic>>();
+          List<Course> recipe = List.generate(tempResult.length, (i) {
             return Course.fromMap(tempResult[i]);
-            });
-    RecipeRepository.to.updateyourrecipe(recipe);
-   
+          });
+          RecipeRepository.to.updateyourrecipe(recipe);
         });
       
     } catch (e) {
@@ -52,45 +62,30 @@ class _HomeScreenState extends State<HomeScreen> {
     loadRecipes();
   }
 
-  PageController page = PageController();
-
-  var height, width;
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
-    width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: PageView(
-        controller: page,
-        children: const [
-          Page1(),
-          Page2(),
-          SettingsScreen(),
-        ],
-      ),
-      bottomNavigationBar: ButtonNavigationBar(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(10),
-        ),
-        children: [
-          ButtonNavigationItem(
-            icon: const Icon(Icons.map_outlined),
-            onPressed: () {
-              page.jumpToPage(0);
-            },
+      body: list[_bottomNavIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.amber,
+        currentIndex: _bottomNavIndex,backgroundColor: Colors.white,   
+            onTap: (index) {
+          setState(() {
+            _bottomNavIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'New Courses',
           ),
-          ButtonNavigationItem(
-            width: width * 0.3,
-            icon: const Icon(Icons.data_exploration_outlined),
-            onPressed: () {
-              page.jumpToPage(1);
-            },
+          BottomNavigationBarItem(
+            icon: Icon(Icons.medication_rounded),
+            label: 'Your courses',
           ),
-          ButtonNavigationItem(
-            icon: const Icon(Icons.person),
-            onPressed: () {
-              page.jumpToPage(2);
-            },
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),

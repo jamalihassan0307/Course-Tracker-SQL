@@ -1,42 +1,24 @@
-import 'package:course_tracker/model.dart/RecppeModel.dart';
-import 'package:flutter/services.dart';
-// import 'package:course_tracker/model.dart/RecppeModel.dart';
-import 'package:course_tracker/sql/sql.dart';
-// import 'package:course_tracker/sql/sqllite.dart';
-import 'package:course_tracker/screen/loginScreen.dart';
-import 'package:course_tracker/widget/theme/app_theme.dart';
+import 'core/locator.dart';
+import 'core/providers.dart';
+import 'core/services/navigator_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'views/home/home_view.dart';
 
-Future<void> main() async {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: mainTheme.scaffoldBackgroundColor,
-      statusBarBrightness: Brightness.light));
-  runApp(const MyApp());
-  await SQL.connection();
-var list= await loadRecipes();
-  for (var e in list) {
-    
-    SQL.get("INSERT INTO dbo.bcourse VALUES (${e.toMap()})");}
+void main() async {
+  await LocatorInjector.setupLocator();
+  runApp(MainApplication());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MainApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Food Dairy App',
-      theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: mainTheme.scaffoldBackgroundColor),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: ProviderInjector.providers,
+      child: MaterialApp(
+        navigatorKey: locator<NavigatorService>().navigatorKey,
+        home: HomeView(),
       ),
-
-      home: const LoginScreen(),
-      // HomeScreen(),
-      darkTheme: mainTheme,
-      themeMode: ThemeMode.light,
-      debugShowCheckedModeBanner: false,
     );
   }
 }

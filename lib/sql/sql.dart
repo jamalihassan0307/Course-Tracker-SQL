@@ -3,8 +3,8 @@ import 'package:connect_to_sql_server_directly/connect_to_sql_server_directly.da
 
 class SQL {
   static var database = "coursetracker";
-  // static var ip = "192.168.117.235";
-  static var ip = "192.168.100.7";
+  static var ip = "192.168.241.235";
+  // static var ip = "192.168.100.7";
   // static var ip = "127.0.0.1";
   // static var ip = "192.168.188.235";
   // static var ip = "192.168.137.205";

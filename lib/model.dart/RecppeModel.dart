@@ -53,10 +53,10 @@ Future<List<Course>> loadRecipes() async {
   String java = (await StaticData.assetToFile("assets/images/java.png")).path;
   String cplusplus = (await StaticData.assetToFile("assets/images/cplus.png")).path;
   String python = (await StaticData.assetToFile("assets/images/pythen.png")).path;
-  String webdeveiopment = (await StaticData.assetToFile("assets/images/webdeveiopment.jfif")).path;
-  String andriod_development_with_kotline = (await StaticData.assetToFile("assets/images/andriod_development_with_kotline.jfif")).path;
-  String machine_Learning_with_Python = (await StaticData.assetToFile("assets/images/machine_Learning_with_Python.jfif")).path;
-  String html_CSS_JavaScript = (await StaticData.assetToFile("assets/images/html_CSS_JavaScript.jfif")).path;
+  String webdeveiopment = (await StaticData.assetToFile("assets/images/webdeveiopment.png")).path;
+  String andriod_development_with_kotline = (await StaticData.assetToFile("assets/images/andriod_development_with_kotline.png")).path;
+  String machine_Learning_with_Python = (await StaticData.assetToFile("assets/images/machine_Learning_with_Python.png")).path;
+  String html_CSS_JavaScript = (await StaticData.assetToFile("assets/images/html_CSS_JavaScript.png")).path;
   String sql_for_Data_Analysis = (await StaticData.assetToFile("assets/images/sql_for_Data_Analysis.png")).path;
 
   List<Course> makeCourses = [

@@ -65,6 +65,7 @@ class RecipeCardWidget extends StatelessWidget {
       height: height * 0.24,
       width: width,
       child: Card(
+        color: Colors.amber,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -76,7 +77,7 @@ class RecipeCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("${recipe.paid_fee}cal \t\t\t\t${recipe.startDate}protein",
+                Text("${recipe.paid_fee} fee \t\t\t\t${recipe.endDate} End date",
                     style: Theme.of(context).textTheme.labelMedium),
                 SizedBox(
                     width: width * 0.4,

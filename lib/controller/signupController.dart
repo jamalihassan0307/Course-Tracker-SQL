@@ -30,8 +30,8 @@ class SignupController extends GetxController {
 
   Future<void> register(BuildContext context) async {
    
-    if (username.text.isNotEmpty &&
-        email.text.isNotEmpty &&
+   if (username.text.isNotEmpty &&
+         email.text.isNotEmpty &&
         password.text.isNotEmpty &&
         phone.text.isNotEmpty &&
         dob.text.isNotEmpty) {

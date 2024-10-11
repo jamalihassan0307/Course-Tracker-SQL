@@ -39,13 +39,32 @@ class _ProfileState extends State<Profile> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
+                    
                     SizedBox(
                       height: height * 0.05,
                     ),
-                    Text(
-                      "Profile Update ",
-                      maxLines: 2,
-                      style: Theme.of(context).textTheme.headlineMedium,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                         InkWell(
+                          onTap: (){
+                             Navigator.pop(context);
+                            
+                          },
+                           child: const Icon(
+                                                 Icons.west,
+                                                 color: Colors.black,
+                                                 size: 35,
+                                               ),
+                         ),
+                        Text(
+                          "Profile Update ",
+                          maxLines: 2,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+
+                        SizedBox(width:width*0.02),
+                      ],
                     ),
                     SizedBox(
                       height: height * 0.05,
@@ -73,6 +92,7 @@ class _ProfileState extends State<Profile> {
                       height: height * 0.05,
                     ),
                     Card(
+                      color: Colors.amber,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
                       shadowColor: Colors.black,
@@ -82,7 +102,7 @@ class _ProfileState extends State<Profile> {
                         height: height * 0.07,
                         child: TextFormField(
                           controller: obj.username,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorRadius: const Radius.circular(10),
                           cursorHeight: 30,
                           style: const TextStyle(fontSize: 20),
@@ -98,6 +118,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     SizedBox(height: height * 0.01),
                     Card(
+                      color: Colors.amber,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
                       shadowColor: Colors.black,
@@ -107,7 +128,7 @@ class _ProfileState extends State<Profile> {
                         height: height * 0.07,
                         child: TextFormField(
                           controller: obj.password,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorRadius: const Radius.circular(10),
                           cursorHeight: 30,
                           style: const TextStyle(fontSize: 20),
@@ -123,6 +144,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     SizedBox(height: height * 0.01),
                     Card(
+                      color: Colors.amber,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
                       shadowColor: Colors.black,
@@ -132,7 +154,7 @@ class _ProfileState extends State<Profile> {
                         height: height * 0.07,
                         child: TextFormField(
                           controller: obj.phone,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorRadius: const Radius.circular(10),
                           cursorHeight: 30,
                           style: const TextStyle(fontSize: 20),
@@ -148,6 +170,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     SizedBox(height: height * 0.01),
                     Card(
+                      color: Colors.amber,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
                       shadowColor: Colors.black,
@@ -157,7 +180,7 @@ class _ProfileState extends State<Profile> {
                         height: height * 0.07,
                         child: TextFormField(
                           controller: obj.dob,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorRadius: const Radius.circular(10),
                           cursorHeight: 30,
                           style: const TextStyle(fontSize: 20),
@@ -173,6 +196,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     SizedBox(height: height * 0.01),
                     Card(
+                      color: Colors.amber,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)),
                       shadowColor: Colors.black,
@@ -182,7 +206,7 @@ class _ProfileState extends State<Profile> {
                         height: height * 0.07,
                         child: TextFormField(
                           controller: obj.email,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorRadius: const Radius.circular(10),
                           cursorHeight: 30,
                           style: const TextStyle(fontSize: 20),
@@ -212,7 +236,7 @@ class _ProfileState extends State<Profile> {
                             width: width * 0.45,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(40),
-                              color: const Color.fromARGB(255, 138, 11, 160),
+                           color: Colors.blue,
                             ),
                             child: const Center(
                               child: Text(
