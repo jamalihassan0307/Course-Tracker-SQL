@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 void main() async {
   // await LocatorInjector.setupLocator();
-  runApp(const MainApplication());
+  runApp(const MyApp());
 }
 
-class MainApplication extends StatelessWidget {
-  const MainApplication({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
