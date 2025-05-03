@@ -33,57 +33,61 @@ class ProfileController extends GetxController {
   }
 
   updatedata(context) async {
-    // image  ??= await StaticData.assetToFile(StaticData.model!.image);
     if (username.text.isNotEmpty &&
         email.text.isNotEmpty &&
-        // image != null &&
         password.text.isNotEmpty &&
         phone.text.isNotEmpty &&
         dob.text.isNotEmpty) {
-      UserModel model = UserModel(
-        password: password.text,
-        image: StaticData.model!.image,
-        username: username.text,
-        id: StaticData.model!.id,
-        email: email.text,
-        phone: phone.text,
-        dob: dob.text,
-      );
-      print("asdfgh $model");
-  
-     
-      String query = "UPDATE dbo.users SET ";
-      query += "email = '${model.email}'";
-      query += "password = '${model.password}'";
-      // query += "image = '${model.image}'";
-      query += "username = '${model.username}'";
-      query += "phone = '${model.phone}'";
-      query += "dob = '${model.dob}'";
+      try {
+        UserModel model = UserModel(
+          password: password.text,
+          image: StaticData.model!.image,
+          username: username.text,
+          id: StaticData.model!.id,
+          email: email.text,
+          phone: phone.text,
+          dob: dob.text,
+        );
 
-      query += " WHERE id = '${StaticData.model!.id}'";
-      print('User updated successfully');
-    
-      await SQL.Update(query);
-      StaticData.model=model;
-      update();
-      Fluttertoast.showToast(
-        msg: "Update data Successfuly !",
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        gravity: ToastGravity.BOTTOM,
-        fontSize: 17,
-        timeInSecForIosWeb: 1,
-        toastLength: Toast.LENGTH_LONG,
-      );
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-        (route) => true,
-      );
+        await SQL.updateUser(StaticData.model!.id, {
+          SQL.colUsername: model.username,
+          SQL.colEmail: model.email,
+          SQL.colPassword: model.password,
+          SQL.colPhone: model.phone,
+          SQL.colDob: model.dob,
+          SQL.colImage: model.image,
+        });
 
-      // clearField();
+        StaticData.model = model;
+        update();
+        Fluttertoast.showToast(
+          msg: "Update data Successfully!",
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          gravity: ToastGravity.BOTTOM,
+          fontSize: 17,
+          timeInSecForIosWeb: 1,
+          toastLength: Toast.LENGTH_LONG,
+        );
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+          (route) => true,
+        );
+      } catch (e) {
+        print("Error updating profile: $e");
+        Fluttertoast.showToast(
+          msg: "An error occurred. Please try again later!",
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          gravity: ToastGravity.BOTTOM,
+          fontSize: 17,
+          timeInSecForIosWeb: 1,
+          toastLength: Toast.LENGTH_LONG,
+        );
+      }
     } else {
       Fluttertoast.showToast(
         msg: "Please fill all fields!",
@@ -97,18 +101,17 @@ class ProfileController extends GetxController {
     }
   }
 
-  initialize(){
-      username =
-      TextEditingController(text: StaticData.model!.username);
-   email =
-      TextEditingController(text: StaticData.model!.email);
-   password =
-      TextEditingController(text: StaticData.model!.password);
-   phone =
-      TextEditingController(text: StaticData.model!.phone);
-   dob =
-      TextEditingController(text: StaticData.model!.dob);
-      
+  initialize() {
+    username =
+        TextEditingController(text: StaticData.model!.username);
+    email =
+        TextEditingController(text: StaticData.model!.email);
+    password =
+        TextEditingController(text: StaticData.model!.password);
+    phone =
+        TextEditingController(text: StaticData.model!.phone);
+    dob =
+        TextEditingController(text: StaticData.model!.dob);
   }
 
   void clearField() {

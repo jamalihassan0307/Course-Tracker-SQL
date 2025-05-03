@@ -21,9 +21,24 @@ class RecipeRepository extends GetxController {
   TextEditingController endData = TextEditingController();
   int index = 0;
   File? image;
-  void delete(Course recipe) {
-    yourcourse!.removeWhere((item) => item.id == recipe.id);
-    update();
+
+  void delete(Course recipe) async {
+    try {
+      await SQL.deleteCourse(recipe.id);
+      yourcourse!.removeWhere((item) => item.id == recipe.id);
+      update();
+    } catch (e) {
+      print("Error deleting course: $e");
+      Fluttertoast.showToast(
+        msg: "An error occurred while deleting the course",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        gravity: ToastGravity.BOTTOM,
+        fontSize: 17,
+        timeInSecForIosWeb: 1,
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
   }
 
   updatebestrecipe(List<Course> course) {
@@ -53,18 +68,32 @@ class RecipeRepository extends GetxController {
         paidfee.text.isNotEmpty &&
         startDate.text.isNotEmpty &&
         endData.text.isNotEmpty) {
-      String id = DateTime.now().microsecond.toString();
-      Course model = Course(
+      try {
+        String id = DateTime.now().microsecond.toString();
+        Course model = Course(
           id: id,
           name: name.text,
           description: des.text,
           imageUrl: image!.path,
           paid_fee: paidfee.text,
           startDate: startDate.text,
-          endDate: endData.text);
-          await SQL.post("INSERT INTO dbo.course VALUES  (${model.toMap()})").then((value) {
- Fluttertoast.showToast(
-          msg: "Add Successfully !",
+          endDate: endData.text,
+        );
+
+        await SQL.insertCourse({
+          SQL.colCourseId: model.id,
+          SQL.colCourseName: model.name,
+          SQL.colDescription: model.description,
+          SQL.colImageUrl: model.imageUrl,
+          SQL.colPaidFee: model.paid_fee,
+          SQL.colStartDate: model.startDate,
+          SQL.colEndDate: model.endDate,
+        });
+
+        yourcourse!.add(model);
+        cleardata();
+        Fluttertoast.showToast(
+          msg: "Add Successfully!",
           backgroundColor: Colors.red,
           textColor: Colors.white,
           gravity: ToastGravity.BOTTOM,
@@ -72,15 +101,21 @@ class RecipeRepository extends GetxController {
           timeInSecForIosWeb: 1,
           toastLength: Toast.LENGTH_LONG,
         );
-          });
-      
-       
-       yourcourse!.add(model);
-    
-      cleardata();
+      } catch (e) {
+        print("Error adding course: $e");
+        Fluttertoast.showToast(
+          msg: "An error occurred while adding the course",
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          gravity: ToastGravity.BOTTOM,
+          fontSize: 17,
+          timeInSecForIosWeb: 1,
+          toastLength: Toast.LENGTH_LONG,
+        );
+      }
     } else {
       Fluttertoast.showToast(
-        msg: "Fill All Fields! !",
+        msg: "Fill All Fields!",
         backgroundColor: Colors.red,
         textColor: Colors.white,
         gravity: ToastGravity.BOTTOM,

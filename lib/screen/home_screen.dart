@@ -39,24 +39,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     super.initState();
   }
 
-  getdata() {
+  getdata() async {
     RecipeRepository.to.updateyourrecipe([]);
 
     try {
-      SQL
-        .get("select * from dbo.course")
-        .then((value) {
-          print("valueeeeeeeeeeeeeeee${value}");  
-          List<Map<String, dynamic>> tempResult = value.cast<Map<String, dynamic>>();
-          List<Course> recipe = List.generate(tempResult.length, (i) {
-            return Course.fromMap(tempResult[i]);
-          });
-          RecipeRepository.to.updateyourrecipe(recipe);
-        });
-      
+      List<Map<String, dynamic>> courses = await SQL.getCourses();
+      List<Course> recipe = List.generate(courses.length, (i) {
+        return Course.fromMap(courses[i]);
+      });
+      RecipeRepository.to.updateyourrecipe(recipe);
     } catch (e) {
-      print("errorrr     $e");
-      return null;
+      print("Error getting courses: $e");
     }
 
     loadRecipes();
@@ -68,8 +61,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       body: list[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.amber,
-        currentIndex: _bottomNavIndex,backgroundColor: Colors.white,   
-            onTap: (index) {
+        currentIndex: _bottomNavIndex,
+        backgroundColor: Colors.white,
+        onTap: (index) {
           setState(() {
             _bottomNavIndex = index;
           });
