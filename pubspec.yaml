@@ -39,13 +39,12 @@ dependencies:
   get:
   flex_color_scheme: 
   button_navigation_bar:  
-  sqflite: 
-  path_provider: 
+  sqflite: ^2.3.0
+  path_provider: ^2.1.2
   fluttertoast: 
   path: 
   shared_preferences:
   font_awesome_flutter: 
-  connect_to_sql_server_directly: 
 
 dev_dependencies:
   flutter_test:
