@@ -11,58 +11,50 @@ class LoginController extends GetxController {
   static LoginController get to => Get.find();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
   Future getUser(String email, String password) async {
-    print("dataaaa");
-   try {
-     await SQL.get("Select * from users where email = '$email' AND password = '$password'").then((map) async {
-    
-   
-   
-      UserModel? model;
-      try {
-          print("84965784$map");
-          if (map[0]!=null) {
-                 
-       model =await UserModel( 
-
-      username: map[0]['username'],
-      id: map[0]['id'] as String ,
-      email: map[0]['email'] as String ,
-      phone: map[0]['phone'] as String ,
-      dob: map[0]['dob']  as String,
-      image: map[0]['image'] as String,
-      password: map[0]['password']  as String,
-    );
-  
-    print("sofjnsngfg$model");
-      print("dskjfhj$model");
-      StaticData.model = model;
-      StaticData.id = model.id;
-      update();
-      StaticData.storeCredentials(email, password);
-      cleardata();  
- }
- else{
-  Fluttertoast.showToast(msg: "User Not Found !",backgroundColor: Colors.red,textColor: Colors.white,gravity: ToastGravity.BOTTOM,fontSize: 17,timeInSecForIosWeb: 1,toastLength: Toast.LENGTH_LONG,);
-  
- }
-      } catch (e) {
-        print("edfrergj$e");
-      } 
-    
+    try {
+      List<Map<String, dynamic>> users = await SQL.getUserByEmailAndPassword(email, password);
       
-  });
-   } catch (e) {
-     print("fdsgndfjgh$e");
-   }
-  
+      if (users.isNotEmpty) {
+        UserModel model = UserModel(
+          username: users[0][SQL.colUsername],
+          id: users[0][SQL.colUserId],
+          email: users[0][SQL.colEmail],
+          phone: users[0][SQL.colPhone],
+          dob: users[0][SQL.colDob],
+          image: users[0][SQL.colImage],
+          password: users[0][SQL.colPassword],
+        );
 
-   
-   
-
-
-   
-   
+        StaticData.model = model;
+        StaticData.id = model.id;
+        update();
+        StaticData.storeCredentials(email, password);
+        cleardata();
+      } else {
+        Fluttertoast.showToast(
+          msg: "User Not Found!",
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          gravity: ToastGravity.BOTTOM,
+          fontSize: 17,
+          timeInSecForIosWeb: 1,
+          toastLength: Toast.LENGTH_LONG,
+        );
+      }
+    } catch (e) {
+      print("Error in login: $e");
+      Fluttertoast.showToast(
+        msg: "An error occurred. Please try again later!",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        gravity: ToastGravity.BOTTOM,
+        fontSize: 17,
+        timeInSecForIosWeb: 1,
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
   }
 
   cleardata() {
