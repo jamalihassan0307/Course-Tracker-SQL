@@ -49,14 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-  connect_to_sql_server_directly:
-    dependency: "direct main"
-    description:
-      name: connect_to_sql_server_directly
-      sha256: "29961bfc92b074f9f2f5d576187c92f2e191c6b7372b3df678334b5ddf5ca9a5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1"
   cross_file:
     dependency: transitive
     description:
