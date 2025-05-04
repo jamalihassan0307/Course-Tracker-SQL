@@ -23,8 +23,8 @@ apply plugin: 'com.google.gms.google-services'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    namespace "com.example.one_click"
-    compileSdkVersion flutter.compileSdkVersion
+    namespace "com.example.course_tracker"
+    compileSdkVersion 35
     ndkVersion "25.1.8937393"
 
     compileOptions {
@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.one_click"
+        applicationId "com.example.course_tracker"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
