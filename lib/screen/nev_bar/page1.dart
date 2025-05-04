@@ -38,29 +38,100 @@ class _Page1State extends State<Page1> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: height * 0.05),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "${StaticData.model!.username} 👋 ",
-                      maxLines: 2,
-                      style: Theme.of(context).textTheme.headlineMedium,
+                
+                // Handle null check for StaticData.model
+                if (StaticData.model != null) ...[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "${StaticData.model!.username} 👋 ",
+                        maxLines: 2,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4A00E0),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.purple.withOpacity(0.3),
+                              blurRadius: 10,
+                              spreadRadius: 2,
+                            ),
+                          ],
+                        ),
+                        child: CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.white,
+                          backgroundImage: StaticData.model!.image.isNotEmpty
+                              ? FileImage(File(StaticData.model!.image))
+                              : null,
+                          child: StaticData.model!.image.isEmpty
+                              ? const Icon(Icons.person, size: 40, color: Colors.purple)
+                              : null,
+                        ),
+                      )
+                    ],
+                  ),
+                ] else ...[
+                  // Placeholder UI when model is null
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Welcome! 👋",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4A00E0),
+                        ),
+                      ),
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundColor: Colors.purple.withOpacity(0.2),
+                        child: const Icon(Icons.person, size: 40, color: Colors.purple),
+                      )
+                    ],
+                  ),
+                ],
+                
+                SizedBox(height: height * 0.03),
+                
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF8E2DE2), Color(0xFF4A00E0)],
                     ),
-                    CircleAvatar(
-                        radius: 45,
-                        // backgroundColor: Colors.blue.shade900,
-                        backgroundImage:
-                            FileImage(File(StaticData.model!.image)))
-                  ],
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text(
+                    "${obj.bestcourse == null ? 0 : obj.bestcourse!.length} Best Courses",
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
+                
                 SizedBox(height: height * 0.02),
-                Text(
-                  "${obj.bestcourse == null ? 0 : obj.bestcourse!.length} Best Course",
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
+                
                 Expanded(
                   child: obj.bestcourse == null
-                      ? const SizedBox()
+                      ? const Center(
+                          child: Text(
+                            "No courses available yet",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        )
                       : LoadedRecipesWidget(
                           recipes: obj.bestcourse!,
                         ),
