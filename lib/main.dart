@@ -1,5 +1,4 @@
-// import 'package:course_tracker/screen/SignupScreen.dart';
-import 'package:course_tracker/screen/loginScreen.dart';
+
 import 'package:course_tracker/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
