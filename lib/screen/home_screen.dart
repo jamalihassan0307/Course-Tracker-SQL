@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, library_private_types_in_public_api
 
+import 'package:course_tracker/screen/addfood.dart';
 import 'package:flutter/material.dart';
 import 'package:course_tracker/controller/courseController.dart';
 import 'package:course_tracker/sql/sql.dart';
@@ -120,6 +121,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         backgroundColor: const Color(0xFF4A00E0),
         elevation: 8,
         onPressed: () {
+            Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AddData(),
+                          ),
+                        );
           // Action to add a new course
         },
         child: const Icon(
