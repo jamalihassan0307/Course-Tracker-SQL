@@ -1,6 +1,8 @@
-import 'package:course_tracker/screen/SignupScreen.dart';
+// import 'package:course_tracker/screen/SignupScreen.dart';
 import 'package:course_tracker/screen/loginScreen.dart';
+import 'package:course_tracker/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() async {
   // await LocatorInjector.setupLocator();
@@ -12,10 +14,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // navigatorKey: locator<NavigatorService>().navigatorKey,
-      home: LoginScreen(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const SplashScreen(),
     );
   }
 }
