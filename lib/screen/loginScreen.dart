@@ -111,9 +111,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                           size: 60,
                           color: Colors.white,
                         ),
-                      ).animate()
-                        .scale(duration: 600.ms, curve: Curves.easeOutBack)
-                        .fadeIn(duration: 700.ms),
+                      ),
                     ),
                     
                     SizedBox(height: height * 0.03),
@@ -167,9 +165,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                           hintStyle: TextStyle(fontSize: 18, color: Colors.white54),
                         ),
                       ),
-                    ).animate()
-                      .fadeIn(delay: 300.ms, duration: 500.ms)
-                      .moveX(begin: -50, end: 0, delay: 300.ms, duration: 500.ms),
+                    ),
                     
                     // Password field with animation
                     Container(
@@ -192,9 +188,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                           hintStyle: TextStyle(fontSize: 18, color: Colors.white54),
                         ),
                       ),
-                    ).animate()
-                      .fadeIn(delay: 500.ms, duration: 500.ms)
-                      .moveX(begin: 50, end: 0, delay: 500.ms, duration: 500.ms),
+                    ),
                     
                     SizedBox(height: height * 0.03),
                     
@@ -245,9 +239,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                           ),
                         ),
                       ),
-                    ).animate()
-                      .fadeIn(delay: 700.ms, duration: 500.ms)
-                      .scale(delay: 700.ms, duration: 400.ms),
+                    ),
                     
                     SizedBox(height: height * 0.03),
                     
@@ -290,8 +282,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                           ),
                         ),
                       ],
-                    ).animate()
-                      .fadeIn(delay: 900.ms, duration: 500.ms),
+                    ),
                   ],
                 ),
               ),
